@@ -43,6 +43,7 @@ h3 {
 
 main {
     background: url(/assets/images/background.png) no-repeat center center/cover;
+    height: 100vh;
 }
 
 /* Heading section */
@@ -68,5 +69,5 @@ header {
 }
 
 .game-section {
-    height: 90vh;
+    height: 75vh;
 }
