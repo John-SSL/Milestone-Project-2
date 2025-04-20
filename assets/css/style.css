@@ -2,6 +2,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ribeye+Marrow&display=swap');
 
 
+/* CSS variables*/
+:root {
+    --primary-font:"Noto Sans", sans-sefir;
+    --secondary-font:"Ribeye Marrow", cursive;
+    --primary-color:#006494; /* blue */
+    --secondary-color:#13293D; /* dark blue */
+    --highlight-color:#1B98E0; /* light blue */
+    --highlight-color-light:#E8F1F2; /* light grey */
+}
+
+/* Global styles */
+body {
+    font-family: var(--primary-font);
+}
+
+h1 {
+    font-family: var(--secondary-font);
+}
+
+#header {
+    color: var(--highlight-color-light);
+    background-color: var(--highlight-color);
+}
+/* Heading section */
+
+
+/*Game section*/
 .game-card {
     border: 5px solid blue;
     border-radius: 50%;
