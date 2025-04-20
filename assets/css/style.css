@@ -1,2 +1,15 @@
 /* Google fonts Ribeye Marrow & Noto Sans */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ribeye+Marrow&display=swap');
+
+
+.game-card {
+    border: 5px solid blue;
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    
+}
+
+.game-section {
+    height: 75vh;
+}
