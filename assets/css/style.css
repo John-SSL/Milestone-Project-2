@@ -13,6 +13,14 @@
 }
 
 /* Global styles */
+
+/*Stops the page from scrolling */
+html, body {
+    height: 100%;
+    overflow-y: hidden; 
+    overflow-x: hidden; 
+}
+
 body {
     font-family: var(--primary-font);
     background-color: var(--highlight-color-light);
