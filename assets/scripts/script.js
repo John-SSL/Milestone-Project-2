@@ -9,6 +9,7 @@ const sources = [];
 let turns = [];
 let symbols = document.querySelectorAll(".symbol");
 let correctSymbol = "";
+let score = document.getElementById("score").innerText;
 
 // // stores the src of each element into an array
 for (let symbol of symbols) {
@@ -26,7 +27,6 @@ function shuffleTurns () {
         };
     };
     // Shuffles symbols in cards
-    console.log(turns);
     for (let i = 0; i < 18; i++) {
     symbols[i].src = sources[turns[i]];
     };
@@ -58,8 +58,26 @@ function responseCheck (e) {
     if (e.srcElement.src === correctSymbol.src){
         shuffleTurns();
         pickSymbol();
+        addScore();
     };
 }
 
+// Increase score
+function addScore () {
+    parseInt(score);
+    document.getElementById("score").innerText = ++score;
+}
 
+// Set time for the countdown and when reaches 0 stops
+let secondsLeft = 10;
+let count = setInterval(function() {
+    document.getElementById("time").innerHTML = `${secondsLeft}s`;
+    secondsLeft--;
 
+    if (secondsLeft <= 0 ) {
+        
+        clearInterval(count);
+        alert(`You Scored ${score}!`);
+    }
+
+}, 1000);
