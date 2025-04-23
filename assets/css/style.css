@@ -32,13 +32,9 @@ h1 {
     margin: 0;
 }
 
-h2 {
+h2, h3 {
     color: var(--primary-color);
     font-family: var(--secondary-font);
-}
-
-h3 {
-    color: var(--highlight-color-light);
 }
 
 main {

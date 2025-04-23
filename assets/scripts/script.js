@@ -1,9 +1,6 @@
 
 // // Shuffles cards and choses random symbol on page load
-window.addEventListener("load", function () {
-    shuffleTurns();
-    pickSymbol();
-});
+window.addEventListener("load", startGame);
 
 const sources = [];
 let turns = [];
@@ -11,7 +8,14 @@ let symbols = document.querySelectorAll(".symbol");
 let correctSymbol = "";
 let score = document.getElementById("score").innerText;
 
-// // stores the src of each element into an array
+// Starts the game
+function startGame () {
+    shuffleTurns();
+    pickSymbol();
+    startTimer();
+}
+
+// Stores the src of each element into an array
 for (let symbol of symbols) {
     sources.push(symbol.src);
 }
@@ -56,9 +60,7 @@ for (let symbol of document.getElementsByClassName("card2-symbol")) {
 function responseCheck (e) {
     console.log(e.srcElement.src);
     if (e.srcElement.src === correctSymbol.src){
-        shuffleTurns();
-        pickSymbol();
-        addScore();
+        startGame();
     };
 }
 
@@ -69,15 +71,34 @@ function addScore () {
 }
 
 // Set time for the countdown and when reaches 0 stops
-let secondsLeft = 10;
-let count = setInterval(function() {
+function startTimer () {
+
+    let secondsLeft = 3;
+    let count = setInterval(function() {
     document.getElementById("time").innerHTML = `${secondsLeft}s`;
     secondsLeft--;
 
-    if (secondsLeft <= 0 ) {
+    if (secondsLeft < 0 ) {
         
         clearInterval(count);
-        alert(`You Scored ${score}!`);
+        displayModal();
     }
 
 }, 1000);
+
+}
+
+
+// Display Bootsrap modal with score
+function displayModal () {
+    const myModal = new bootstrap.Modal('#score-modal');
+    document.getElementById("score-message").innerHTML = `You Scored ${score}!`;
+    myModal.show();
+}
+
+document.getElementById("play-again").addEventListener("click", function () {
+    startGame();
+})
+    
+
+
