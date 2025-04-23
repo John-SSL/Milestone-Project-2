@@ -60,7 +60,8 @@ for (let symbol of document.getElementsByClassName("card2-symbol")) {
 function responseCheck (e) {
     console.log(e.srcElement.src);
     if (e.srcElement.src === correctSymbol.src){
-        startGame();
+        shuffleTurns();
+        pickSymbol();
     };
 }
 
