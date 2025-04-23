@@ -62,6 +62,7 @@ function responseCheck (e) {
     if (e.srcElement.src === correctSymbol.src){
         shuffleTurns();
         pickSymbol();
+        addScore();
     };
 }
 
