@@ -75,7 +75,7 @@ function addScore () {
 // Set time for the countdown and when reaches 0 stops
 function startTimer () {
 
-    let secondsLeft = 5;
+    let secondsLeft = 60;
     let count = setInterval(function() {
     document.getElementById("time").innerHTML = `${secondsLeft}s`;
     secondsLeft--;
