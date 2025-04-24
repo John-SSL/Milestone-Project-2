@@ -29,7 +29,7 @@
         <h1 id="header" class="p-2"><a href="index.html">Spot It !</a></h1>
     </header>
 
-    <!-- Main section -->
+    <!-- Main element for semantic purpose -->
     <main>
         <!-- Info section -->
         <section class="info container">
@@ -46,7 +46,7 @@
         </section>
 
         <!-- Game section -->
-        <section class="d-flex flex-column justify-content-center game-section">
+        <div class="d-flex flex-column justify-content-center game-section">
             <div class="row justify-content-center">
                 <!-- Card 1 -->
                 <div id="card1" class="game-card m-2">
@@ -80,7 +80,8 @@
                     </div>
                     <div class="img-card d-flex justify-content-around">
                         <img src="assets/images/moon.png" alt="moon game symbol" class="symbol card2-symbol">
-                        <img src="assets/images/purple-hand.png" alt="purple hand game symbol" class="symbol card2-symbol">
+                        <img src="assets/images/purple-hand.png" alt="purple hand game symbol"
+                            class="symbol card2-symbol">
                     </div>
                     <div class="img-card d-flex justify-content-between">
                         <img src="assets/images/red-heart.png" alt="red heart game symbol" class="symbol card2-symbol">
@@ -96,8 +97,8 @@
                     </div>
                 </div>
             </div>
-        </section>
-        
+        </div>
+
 
         <!-- Modal -->
         <div class="modal fade" id="score-modal" tabindex="-1" aria-labelledby="score-modal-Label" aria-hidden="true">
@@ -110,13 +111,14 @@
                         <p id="score-message"></p>
                     </div>
                     <div class="modal-footer justify-content-around">
-                        <a href="index.html"><button type="button" class="btn btn-secondary custom-button-secondary">Back home</button></a>
-                        <button type="button" class="btn btn-primary custom-button-primary" data-bs-dismiss="modal" id="play-again">Play again</button>
+                        <button type="button" class="btn btn-secondary custom-button-secondary"><a
+                                href="index.html">Back home</a></button>
+                        <button type="button" class="btn btn-primary custom-button-primary" data-bs-dismiss="modal"
+                            id="play-again">Play again</button>
                     </div>
                 </div>
             </div>
         </div>
-
     </main>
 
     <!-- Link to Script -->
