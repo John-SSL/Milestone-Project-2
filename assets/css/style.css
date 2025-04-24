@@ -86,7 +86,17 @@ header {
     border-color: var(--secondary-color);
 }
 
+.custom-button-primary:hover {
+    background-color: var(--highlight-color);
+    border-color: var(--primary-color);
+}
 
+.custom-button-secondary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--secondary-color);
+}
+
+/* Home page */
 #home-screen {
     height: 100vh;
     background:  url(../images/background-home.png) no-repeat center center/cover;
