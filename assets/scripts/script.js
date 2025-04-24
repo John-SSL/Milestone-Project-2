@@ -45,7 +45,6 @@ function pickSymbol () {
     card2Symbols[Math.floor(Math.random() * 9)].src = randomSymbol.src;
     
     correctSymbol = randomSymbol;
-    console.log(randomSymbol.src);
 }
 
 
@@ -58,7 +57,7 @@ for (let symbol of document.getElementsByClassName("card2-symbol")) {
  *  Checks if the symbol clicked is the correct one 
  */
 function responseCheck (e) {
-    console.log(e.srcElement.src);
+    
     if (e.srcElement.src === correctSymbol.src){
         shuffleTurns();
         pickSymbol();
