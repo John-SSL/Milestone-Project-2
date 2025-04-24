@@ -78,10 +78,12 @@ header {
 /* Custom buttons */
 .custom-button-primary {
     background-color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .custom-button-secondary {
     background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
 }
 
 
@@ -92,4 +94,5 @@ header {
 
 .cover-text {
     background-color: rgba(255, 255, 255, .7);
+    border-radius: 1.5rem;
 }
