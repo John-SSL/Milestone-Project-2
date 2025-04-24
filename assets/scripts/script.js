@@ -75,7 +75,7 @@ function addScore () {
 // Set time for the countdown and when reaches 0 stops
 function startTimer () {
 
-    let secondsLeft = 60;
+    let secondsLeft = 5;
     let count = setInterval(function() {
     document.getElementById("time").innerHTML = `${secondsLeft}s`;
     secondsLeft--;
@@ -99,7 +99,10 @@ function displayModal () {
 }
 
 document.getElementById("play-again").addEventListener("click", function () {
+    
     startGame();
+    document.getElementById("score").innerText = 0;
+    score = 0;
 })
     
 
