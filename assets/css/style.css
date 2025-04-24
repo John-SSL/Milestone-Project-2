@@ -45,7 +45,7 @@ main {
 /* Heading section */
 header {
     color: var(--highlight-color-light);
-    background-color: var(--highlight-color);
+    background-color: var(--primary-color);
 }
 
 /* Info section */
