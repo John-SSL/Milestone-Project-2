@@ -1,5 +1,14 @@
-
-// // Shuffles cards and choses random symbol on page load
+document.addEventListener("DOMContentLoaded", function() {
+    // Stores the src of each element into an array
+    for (let symbol of symbols) {
+    sources.push(symbol.src);
+    }
+    // Add event listeners to all symbols
+    for (let symbol of document.getElementsByClassName("card2-symbol")) {
+    symbol.addEventListener("click", responseCheck);
+    }
+})
+// Shuffles cards and choses random symbol on page load
 window.addEventListener("load", startGame);
 
 const sources = [];
@@ -13,11 +22,6 @@ function startGame () {
     shuffleTurns();
     pickSymbol();
     startTimer();
-}
-
-// Stores the src of each element into an array
-for (let symbol of symbols) {
-    sources.push(symbol.src);
 }
 
 // Stores unique sequences of numbers between 0 and 17 into turns array
@@ -36,28 +40,19 @@ function shuffleTurns () {
     };
 }
 
-
 // Pick a random symbol to display on both cards
 function pickSymbol () {
     const card1Symbols = document.getElementsByClassName("card1-symbol");
     const card2Symbols = document.getElementsByClassName("card2-symbol");
     const randomSymbol = card1Symbols[Math.floor(Math.random() * 9)];
     card2Symbols[Math.floor(Math.random() * 9)].src = randomSymbol.src;
-    
     correctSymbol = randomSymbol;
 }
 
-
-// Add event listeners to all symbols
-for (let symbol of document.getElementsByClassName("card2-symbol")) {
-    symbol.addEventListener("click", responseCheck);
-}
-
 /**
- *  Checks if the symbol clicked is the correct one 
+ *  Checks if the symbol clicked is the correct one
  */
 function responseCheck (e) {
-    
     if (e.srcElement.src === correctSymbol.src){
         shuffleTurns();
         pickSymbol();
@@ -73,7 +68,6 @@ function addScore () {
 
 // Set time for the countdown and when reaches 0 stops
 function startTimer () {
-
     let secondsLeft = 60;
     let count = setInterval(function() {
     document.getElementById("time").innerHTML = `${secondsLeft}s`;
@@ -84,21 +78,17 @@ function startTimer () {
         clearInterval(count);
         displayModal();
     }
-
 }, 1000);
-
 }
-
 
 // Display Bootsrap modal with score
 function displayModal () {
-    const myModal = new bootstrap.Modal('#score-modal');
+    const myModal = new bootstrap.Modal("#score-modal");
     document.getElementById("score-message").innerHTML = `You Scored ${score}!`;
     myModal.show();
 }
 
 document.getElementById("play-again").addEventListener("click", function () {
-    
     startGame();
     document.getElementById("score").innerText = 0;
     score = 0;
