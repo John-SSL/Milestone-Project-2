@@ -1,5 +1,5 @@
 # Spot it!
-## Poject Goals
+## Project Goals
 ### As a developer
 The main project goal is to showcase my abilities to build an interactive website using JavaScript and that follows the best practices for web development.
 ### As a game
