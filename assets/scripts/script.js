@@ -11,11 +11,19 @@ document.addEventListener("DOMContentLoaded", function() {
 // Shuffles cards and choses random symbol on page load
 window.addEventListener("load", startGame);
 
-const sources = [];
-let turns = [];
+let game = {
+    sources: [],
+    turns:[],
+    correctSymbol: "",
+    score: 0,
+    secondsLeft: 60
+}
+
+let sources = game.sources;
+let turns = game.turns;
 let symbols = document.querySelectorAll(".symbol");
-let correctSymbol = "";
-let score = document.getElementById("score").innerText;
+let correctSymbol = game.correctSymbol;
+let secondsLeft = game.secondsLeft;
 
 // Starts the game
 function startGame () {
@@ -62,37 +70,46 @@ function responseCheck (e) {
 
 // Increase score
 function addScore () {
-    parseInt(score);
-    document.getElementById("score").innerText = ++score;
+    game.score++
+    document.getElementById("score").innerText = game.score;
 }
 
 // Set time for the countdown and when reaches 0 stops
 function startTimer () {
-    let secondsLeft = 60;
+    secondsLeft = 60;
     let count = setInterval(function() {
     document.getElementById("time").innerHTML = `${secondsLeft}s`;
     secondsLeft--;
 
     if (secondsLeft < 0 ) {
-        
         clearInterval(count);
         displayModal();
     }
 }, 1000);
 }
 
-// Display Bootsrap modal with score
+// Display Bootstrap modal with score
 function displayModal () {
     const myModal = new bootstrap.Modal("#score-modal");
-    document.getElementById("score-message").innerHTML = `You Scored ${score}!`;
+    document.getElementById("score-message").innerHTML = `You Scored ${game.score}!`;
     myModal.show();
 }
 
-document.getElementById("play-again").addEventListener("click", function () {
-    startGame();
-    document.getElementById("score").innerText = 0;
-    score = 0;
-})
-    
+let playAgainButton = document.getElementById("play-again");
+// Checks that playAgainButton is not null before adding event listeners
+if (playAgainButton) {
+    playAgainButton.addEventListener("click", function () {
+       newGame();
+       startGame();
+    });
+}
 
+function newGame() {
+    document.getElementById("score").innerText = 0;
+    game.score = 0;
+    game.secondsLeft = 60
+    };
+
+    
+module.exports = { game, addScore, newGame };
 
